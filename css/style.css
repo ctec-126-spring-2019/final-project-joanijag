@@ -1,0 +1,25 @@
+/* style.css */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(240, 238, 238);
+}
+.border-3 {
+    border-color: #343a40;
+    border-style:solid;
+    border-width: 5px;
+}
+.border-headline{
+    border-color: #a6a6a7;
+    border-style:solid;
+    border-width: 2px;  
+}
+.featuredImage{
+    max-width: 50% !important;
+    height: auto; 
+}
+.headline{
+height: 700px;
+}
