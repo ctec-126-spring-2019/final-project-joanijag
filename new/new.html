@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <input type="text" name="userInput" id="userInput">
+    <button value="submit" onclick="weather()">5 Day</button>
+  </div>
+  <div id="result"></div>
+
+
+  <script>
+
+    function weather() {
+      // console.log('hi There');
+      var userInput = document.getElementById("userInput").value;
+
+      if (isNaN(userInput)) {
+        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&APPID=cc3c8116a1cf9ca3a95a01711a5ec899&units=imperial";
+        $.ajax({
+          url: url,
+          method: 'GET'
+        })
+          .done(function (data) {
+            //console.log(data);
+            data = displayResults(data);
+            $('#result').html(data);
+
+            // var myClouds = data.clouds;
+            // var myBase = data.base;
+            // var myMain = data.main.humidity;
+            // console.log(myMain);
+          });
+      } else {
+
+      }
+    }
+
+    function displayResults(data) {
+
+      for (let i = 0; i < data.main.length; i++) {
+        console.log(data.main[i]);
+      }
+    }
+      // function displayResults(data) {
+      //   var output = '';
+      //   var p = "<p>"; // paragraph tag
+      //   var cp = "</p>"; // closing paragraph tag
+      //   for (var i = 0; i < data.result.length; i++) {
+      //     output += "<div>";
+      //     output += data.result[i].main;
+      //     output += "</div>";
+      //   }
+      //   return output;
+      // }
+
+
+      // var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + userInput + "&APPID=cc3c8116a1cf9ca3a95a01711a5ec899&units=imperial";
+
+
+
+
+
+  </script>
+</body>
+
+</html>
